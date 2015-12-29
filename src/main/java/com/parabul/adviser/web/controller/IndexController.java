@@ -25,7 +25,6 @@ public class IndexController {
 		model.addAttribute("titles", carAdviserService.getTitles());
 		model.addAttribute("transmissionTypes",
 				carAdviserService.getTransmissionTypes());
-		model.addAttribute("years", getYears());
 		return "index";
 	}
 
@@ -34,13 +33,5 @@ public class IndexController {
 	public AnalysisInfo advise(ModelMap model, FilterBean filterBean) {
 		return carAdviserService.getAdviceInfo(filterBean);
 
-	}
-
-	private List<Integer> getYears() {
-		List<Integer> years = new ArrayList<Integer>();
-		for (int i = 1990; i < 2017; i++) {
-			years.add(i);
-		}
-		return years;
 	}
 }
